@@ -1,7 +1,6 @@
 const express = require("express");
 const request = require("request");
 const parseString = require("xml2js").parseString;
-const serverless = require("serverless-http");
 const router = express.Router();
 const app = express();
 
@@ -87,9 +86,8 @@ router.get("/stations/:code", (req, res) => {
   }
 });
 
-// app.listen(8080, () => {
-//   console.log("listening on port 8080");
-// });
+app.listen(8080, () => {
+  console.log("listening on port 8080");
+});
 
 app.use("/", router);
-module.exports.handler = serverless(app);
